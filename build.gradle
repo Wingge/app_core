@@ -1,0 +1,91 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.neenbedankt.android-apt' // 注释处理和dagger关联
+
+
+android {
+    //在外面的不需要$
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        version rootProject.ext.version_code
+        versionName rootProject.ext.version_name
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+
+//        minSdkVersion minSdkVersion
+//        targetSdkVersion targetSdkVersion
+//        versionCode versionCode
+//        versionName versionName
+        // dex突破65535的限制
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+//包括注释之所以有这么多包是因为需要测试proguard混淆是否通过
+dependencies {
+    // 引用某一个特定的jar。
+    compile files('libs/abc.jar')
+    // 引用libs文件夹下除xx.jar以外所有的jar。
+    compile fileTree(dir: 'libs', include: ['*.jar'], exclude: ['abc.jar'])
+    // compile fileTree(dir: 'libs', include: ['*.jar'])
+    // 在测试环境下引用依赖。
+    testCompile rootProject.ext.libJunit
+    // 引用users-library。users-library作用是，在编译时使用，但是jar不会打包到apk中，由Android或Android上安装的服务提供需要的内容。
+    // 使用场景：
+    // 1. 使用Android的framework-classes.jar中的一些隐藏的API。
+    // 2. Google的服务框架或者其他服务框架。需要在AndroidMainFest.xml中配合uses-library使用。
+    provided rootProject.ext.libJavaxAnnotation
+    // Android support libraries.
+    compile rootProject.ext.libSupportAppcompat
+    compile rootProject.ext.libSupportDesign
+    compile rootProject.ext.libSupportRecyclerview
+    compile rootProject.ext.libSupportV4
+    //for 突破65535的限制
+    compile rootProject.ext.libMultidex
+
+    //标注，使用apt插件
+    apt rootProject.ext.libDaggerCompiler
+    compile rootProject.ext.libDagger
+
+    compile rootProject.ext.libRxJava
+    compile rootProject.ext.libRxAndroid
+
+    compile rootProject.ext.libRetrofit
+    compile rootProject.ext.libRetrofitConverterGson
+    compile rootProject.ext.libRetrofitAdapterRxJava
+
+    compile rootProject.ext.libGlide
+
+    //内存泄漏检查，请二选一
+    testCompile rootProject.ext.debugDependencies.leakCanary
+    debugCompile rootProject.ext.debugDependencies.leakCanary
+    releaseCompile rootProject.ext.releaseDependencies.leakCanary
+//    testCompile rootProject.ext.debugDependencies.blockCanary
+//    debugCompile rootProject.ext.debugDependencies.blockCanary
+//    releaseCompile rootProject.ext.releaseDependencies.blockCanary
+//
+////    compile rootProject.ext.libLeanbackSupportV4
+////
+//    compile rootProject.ext.libEventBus
+//    compile rootProject.ext.libJavaxAnnotation
+////
+//    compile rootProject.ext.libGson
+//    compile rootProject.ext.libOkHttpLoggingInterceptor
+//
+//    //google 官方databinding
+//    compile rootProject.ext.libRxBinding
+//    compile rootProject.ext.libRxBindingSupportV4
+//    compile rootProject.ext.libRxBindingAppcompatV7
+//    compile rootProject.ext.libRxBindingDesign
+//    compile rootProject.ext.libRxBindingRecyclerview
+//    //orm
+//    compile rootProject.ext.libRealm
+    compile rootProject.ext.libPlayServiceBasement
+
+}
