@@ -62,13 +62,6 @@ dependencies {
 
     compile rootProject.ext.libGlide
 
-    //内存泄漏检查，请二选一
-    testCompile rootProject.ext.debugDependencies.leakCanary
-    debugCompile rootProject.ext.debugDependencies.leakCanary
-    releaseCompile rootProject.ext.releaseDependencies.leakCanary
-//    testCompile rootProject.ext.debugDependencies.blockCanary
-//    debugCompile rootProject.ext.debugDependencies.blockCanary
-//    releaseCompile rootProject.ext.releaseDependencies.blockCanary
 //
 ////    compile rootProject.ext.libLeanbackSupportV4
 ////
@@ -87,5 +80,7 @@ dependencies {
 //    //orm
 //    compile rootProject.ext.libRealm
     compile rootProject.ext.libPlayServiceBasement
+
+    compile 'com.jakewharton:butterknife:7.0.1'
 
 }
