@@ -42,25 +42,25 @@ dependencies {
     // 2. Google的服务框架或者其他服务框架。需要在AndroidMainFest.xml中配合uses-library使用。
     provided rootProject.ext.libJavaxAnnotation
     // Android support libraries.
-    compile rootProject.ext.libSupportAppcompat
-    compile rootProject.ext.libSupportDesign
-    compile rootProject.ext.libSupportRecyclerview
-    compile rootProject.ext.libSupportV4
-    //for 突破65535的限制
-    compile rootProject.ext.libMultidex
+//    compile rootProject.ext.libSupportAppcompat
+//    compile rootProject.ext.libSupportDesign
+//    compile rootProject.ext.libSupportRecyclerview
+//    compile rootProject.ext.libSupportV4
+//    //for 突破65535的限制
+//    compile rootProject.ext.libMultidex
 
-    //标注，使用apt插件
-    apt rootProject.ext.libDaggerCompiler
-    compile rootProject.ext.libDagger
-
-    compile rootProject.ext.libRxJava
-    compile rootProject.ext.libRxAndroid
-
-    compile rootProject.ext.libRetrofit
-    compile rootProject.ext.libRetrofitConverterGson
-    compile rootProject.ext.libRetrofitAdapterRxJava
-
-    compile rootProject.ext.libGlide
+//    //标注，使用apt插件
+//    apt rootProject.ext.libDaggerCompiler
+//    compile rootProject.ext.libDagger
+//
+//    compile rootProject.ext.libRxJava
+//    compile rootProject.ext.libRxAndroid
+//
+//    compile rootProject.ext.libRetrofit
+//    compile rootProject.ext.libRetrofitConverterGson
+//    compile rootProject.ext.libRetrofitAdapterRxJava
+//
+//    compile rootProject.ext.libGlide
 
 //
 ////    compile rootProject.ext.libLeanbackSupportV4
@@ -81,6 +81,6 @@ dependencies {
 //    compile rootProject.ext.libRealm
     compile rootProject.ext.libPlayServiceBasement
 
-    compile 'com.jakewharton:butterknife:7.0.1'
+//    compile 'com.jakewharton:butterknife:7.0.1'
 
 }
