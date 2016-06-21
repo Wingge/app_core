@@ -1,4 +1,4 @@
-package android.code.wing.core;
+package com.code.wing.core;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
