@@ -12,11 +12,6 @@ android {
         versionName rootProject.ext.version_name
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-
-//        minSdkVersion minSdkVersion
-//        targetSdkVersion targetSdkVersion
-//        versionCode versionCode
-//        versionName versionName
         // dex突破65535的限制
         multiDexEnabled true
     }
@@ -46,6 +41,7 @@ dependencies {
 //    compile rootProject.ext.libSupportDesign
 //    compile rootProject.ext.libSupportRecyclerview
 //    compile rootProject.ext.libSupportV4
+//    compile libSupportCardView
 //    //for 突破65535的限制
 //    compile rootProject.ext.libMultidex
 
@@ -60,7 +56,7 @@ dependencies {
 //    compile rootProject.ext.libRetrofitConverterGson
 //    compile rootProject.ext.libRetrofitAdapterRxJava
 //
-//    compile rootProject.ext.libGlide
+    compile rootProject.ext.libGlide
 
 //
 ////    compile rootProject.ext.libLeanbackSupportV4
@@ -83,5 +79,17 @@ dependencies {
 
 //    apt libButterknifeCompiler
 //    compile libButterknife
+
+//    //    //内存泄漏检查，请二选一
+//    testCompile rootProject.ext.debugDependencies.leakCanary
+//    debugCompile rootProject.ext.debugDependencies.leakCanary
+//    releaseCompile rootProject.ext.releaseDependencies.leakCanary
+//////    testCompile rootProject.ext.debugDependencies.blockCanary
+//////    debugCompile rootProject.ext.debugDependencies.blockCanary
+//////    releaseCompile rootProject.ext.releaseDependencies.blockCanary
+
+    /*一个基于Glide的transformation库，拥有裁剪，着色，模糊，滤镜等多种转换效果，赞的不行不行的~~*/
+    compile 'jp.wasabeef:glide-transformations:2.0.1'
+    compile 'jp.co.cyberagent.android.gpuimage:gpuimage-library:1.3.0'
 
 }
