@@ -22,6 +22,10 @@ android {
         }
     }
 }
+
+configurations.all {
+    resolutionStrategy.force libSupportAnnotations
+}
 //包括注释之所以有这么多包是因为需要测试proguard混淆是否通过
 dependencies {
     // 引用某一个特定的jar。
@@ -49,12 +53,12 @@ dependencies {
     apt rootProject.ext.libDaggerCompiler
     compile rootProject.ext.libDagger
 //
-//    compile rootProject.ext.libRxJava
-//    compile rootProject.ext.libRxAndroid
-//
-//    compile rootProject.ext.libRetrofit
-//    compile rootProject.ext.libRetrofitConverterGson
-//    compile rootProject.ext.libRetrofitAdapterRxJava
+    compile rootProject.ext.libRxJava
+    compile rootProject.ext.libRxAndroid
+
+    compile rootProject.ext.libRetrofit
+    compile rootProject.ext.libRetrofitConverterGson
+    compile rootProject.ext.libRetrofitAdapterRxJava
 //
     compile rootProject.ext.libGlide
 
@@ -64,8 +68,8 @@ dependencies {
 //    compile rootProject.ext.libEventBus
 //    compile rootProject.ext.libJavaxAnnotation
 ////
-//    compile rootProject.ext.libGson
-//    compile rootProject.ext.libOkHttpLoggingInterceptor
+    compile rootProject.ext.libGson
+    compile rootProject.ext.libOkHttpLoggingInterceptor
 //
 //    //google 官方databinding
 //    compile rootProject.ext.libRxBinding

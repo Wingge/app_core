@@ -1,0 +1,16 @@
+package com.code.wing.core.net;
+
+/**
+ * Created by Tamic on 2016-08-02.
+ */
+public abstract class DownloadCallBack {
+    public void onStart(){}
+
+    public void onCompleted(){}
+
+    abstract public void onError(Throwable e);
+
+    public void onProgress(long fileSizeDownloaded){}
+
+    abstract public void onSucess(String path, String name, long fileSize);
+}
